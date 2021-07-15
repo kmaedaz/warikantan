@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+        <title>割勘単(WARIKANTAN)</title>
+<style>
+body {
+    background-color: #f7f4f4;
+}
+
+.input-group-text {
+    font-weight: bold;
+    background-color: #effffed4;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.h1, h1 {
+    font-size: 2.2rem;
+    color: #b20ae6eb;
+    font-variant-east-asian: full-width;
+}
+
+</style>
+    </head>
+    <body>
+
+<div class="container">
+<h1>割勘単</h1>
+
+<fieldset>
+<legend>総支払額</legend>
+<div class="input-group mb-3">
+	<div class="input-group-prepend">
+	<span class="input-group-text" id="basic-addon1">総支払額(TOTAL)</span>
+	</div>
+	<input type="number" step="1" min="1" id="TotalPayment" class="form-control" placeholder="total" aria-label="ユーザー名" aria-describedby="basic-addon1">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="DutchUnit">割勘単位(unit)</label>
+  </div>
+  <select class="custom-select" id="DutchUnit">
+    <option value="1">1円</option>
+    <option value="10">10円</option>
+    <option value="50">50円</option>
+    <option value="100">100円</option>
+    <option value="500">500円</option>
+    <option value="1000">1000円</option>
+  </select>
+</div>
+
+
+</fieldset>
+
+<fieldset>
+<legend>一般(General)</legend>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="GeneralPeople">人数</label>
+  </div>
+  <select class="custom-select" id="GeneralPeople">
+    <option selected>選択...</option>
+    <option value="1">1人</option>
+    <option value="2">2人</option>
+    <option value="3">3人</option>
+    <option value="4">4人</option>
+    <option value="5">5人</option>
+    <option value="6">6人</option>
+    <option value="7">7人</option>
+    <option value="8">8人</option>
+    <option value="9">9人</option>
+    <option value="10">10人</option>
+    <option value="11">11人</option>
+    <option value="12">12人</option>
+    <option value="13">13人</option>
+    <option value="14">14人</option>
+    <option value="15">15人</option>
+    <option value="16">16人</option>
+    <option value="17">17人</option>
+    <option value="18">18人</option>
+    <option value="19">19人</option>
+    <option value="20">20人</option>
+    <option value="10">10人</option>
+    <option value="21">21人</option>
+    <option value="22">22人</option>
+    <option value="23">23人</option>
+    <option value="24">24人</option>
+    <option value="25">25人</option>
+    <option value="26">26人</option>
+    <option value="27">27人</option>
+    <option value="28">28人</option>
+    <option value="29">29人</option>
+    <option value="30">30人</option>
+  </select>
+</div>
+</fieldset>
+
+
+<fieldset>
+<legend>GROUP1</legend>
+
+<div class="input-group mb-3">
+	<div class="input-group-prepend">
+	<span class="input-group-text">グループ名(Group Name)</span>
+	</div>
+	<input type="text"  id="GroupName1" class="form-control" placeholder="Ex. Student" aria-label="ユーザー名" aria-describedby="basic-addon1">
+</div>
+
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="GroupPeople1">人数</label>
+  </div>
+  <select class="custom-select" id="GroupPeople1">
+    <option selected value="0">0人</option>
+    <option value="1">1人</option>
+    <option value="2">2人</option>
+    <option value="3">3人</option>
+    <option value="4">4人</option>
+    <option value="5">5人</option>
+    <option value="6">6人</option>
+    <option value="7">7人</option>
+    <option value="8">8人</option>
+    <option value="9">9人</option>
+    <option value="10">10人</option>
+    <option value="11">11人</option>
+    <option value="12">12人</option>
+    <option value="13">13人</option>
+    <option value="14">14人</option>
+    <option value="15">15人</option>
+    <option value="16">16人</option>
+    <option value="17">17人</option>
+    <option value="18">18人</option>
+    <option value="19">19人</option>
+    <option value="20">20人</option>
+    <option value="10">10人</option>
+    <option value="21">21人</option>
+    <option value="22">22人</option>
+    <option value="23">23人</option>
+    <option value="24">24人</option>
+    <option value="25">25人</option>
+    <option value="26">26人</option>
+    <option value="27">27人</option>
+    <option value="28">28人</option>
+    <option value="29">29人</option>
+    <option value="30">30人</option>
+  </select>
+</div>
+
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="DiscountRate1">割引率</label>
+  </div>
+  <select class="custom-select" id="DiscountRate1">
+	<option value="0.95">5%</option>
+	<option value="0.90">10%</option>
+	<option value="0.80">20%</option>
+	<option value="0.70">30%</option>
+	<option value="0.60">40%</option>
+	<option value="0.50">50%</option>
+	<option value="0.40">60%</option>
+	<option value="0.30">70%</option>
+	<option value="0.20">80%</option>
+	<option value="0.10">90%</option>
+	<option value="0.00">100%</option>
+
+  </select>
+</div>
+
+</fieldset>
+
+
+<fieldset>
+<legend>GROUP2</legend>
+
+<div class="input-group mb-3">
+	<div class="input-group-prepend">
+	<span class="input-group-text" >グループ名(Group Name)</span>
+	</div>
+	<input type="text"  id="GroupName2" class="form-control" placeholder="Ex. Ladys" aria-label="ユーザー名" aria-describedby="basic-addon1">
+</div>
+
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="GroupPeople2">人数</label>
+  </div>
+  <select class="custom-select" id="GroupPeople2">
+    <option selected value="0">0人</option>
+    <option value="1">1人</option>
+    <option value="2">2人</option>
+    <option value="3">3人</option>
+    <option value="4">4人</option>
+    <option value="5">5人</option>
+    <option value="6">6人</option>
+    <option value="7">7人</option>
+    <option value="8">8人</option>
+    <option value="9">9人</option>
+    <option value="10">10人</option>
+    <option value="11">11人</option>
+    <option value="12">12人</option>
+    <option value="13">13人</option>
+    <option value="14">14人</option>
+    <option value="15">15人</option>
+    <option value="16">16人</option>
+    <option value="17">17人</option>
+    <option value="18">18人</option>
+    <option value="19">19人</option>
+    <option value="20">20人</option>
+    <option value="10">10人</option>
+    <option value="21">21人</option>
+    <option value="22">22人</option>
+    <option value="23">23人</option>
+    <option value="24">24人</option>
+    <option value="25">25人</option>
+    <option value="26">26人</option>
+    <option value="27">27人</option>
+    <option value="28">28人</option>
+    <option value="29">29人</option>
+    <option value="30">30人</option>
+  </select>
+</div>
+
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="DiscountRate2">割引率</label>
+  </div>
+  <select class="custom-select" id="DiscountRate2">
+	<option value="0.95">5%</option>
+	<option value="0.90">10%</option>
+	<option value="0.80">20%</option>
+	<option value="0.70">30%</option>
+	<option value="0.60">40%</option>
+	<option value="0.50">50%</option>
+	<option value="0.40">60%</option>
+	<option value="0.30">70%</option>
+	<option value="0.20">80%</option>
+	<option value="0.10">90%</option>
+	<option value="0.00">100%</option>
+
+  </select>
+</div>
+
+</fieldset>
+
+<!-- 改行コード（横幅100%） -->
+<div class="w-100"></div>
+<br />
+<button type="button" id="CalculationExecution" class="btn btn-primary btn-lg" style="width:80%">割勘計算(Calculation result)</button>
+<!-- 改行コード（横幅100%） -->
+<div class="w-100"></div>
+<br />
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container" id="CalculationResult">  
+    <p class="lead" >計算結果</p>
+	<div class="container" id="CalculationResult" style="font-size:180%;padding: 0px 30px 0px 10px ;">
+
+	</div><!-- /.container -->
+
+  </div><!-- /.container -->
+</div><!-- /.jumbotron -->
+
+<p>
+<img src="img/shar.png" id="SHAR_BUTTON" title="share">
+share
+</p>
+
+</div>
+<!--
+        <div class="app">
+            <h1>Apache Cordova</h1>
+
+
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+        </div>
+-->
+
+
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="js/storage-control.min.js"></script>
+
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
